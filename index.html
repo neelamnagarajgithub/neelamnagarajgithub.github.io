@@ -54,26 +54,34 @@
     }
 
     .hero {
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       padding: 100px 10% 50px;
+      flex-wrap: wrap;
     }
 
-    .hero h2 {
+    .hero-text {
+      flex: 1;
+      padding-right: 40px;
+    }
+
+    .hero-text h2 {
       color: #87ceeb;
       font-size: 3.5rem;
       margin-bottom: 20px;
     }
 
-    .hero p {
+    .hero-text p {
       color: #b0c9de;
       font-size: 1.3rem;
       max-width: 800px;
-      margin: auto;
     }
 
     .hero img {
-      margin-top: 40px;
-      width: 60%;
+      flex: 1;
+      width: 90%;
+      max-width: 500px;
       border-radius: 20px;
       box-shadow: 0 0 30px rgba(135, 206, 235, 0.3);
     }
@@ -96,7 +104,8 @@
       color: #b0c9de;
     }
 
-    .projects-container {
+    .projects-container,
+    .hackathons-container {
       display: flex;
       gap: 30px;
       overflow-x: auto;
@@ -104,7 +113,8 @@
       scrollbar-width: thin;
     }
 
-    .project-card {
+    .project-card,
+    .hackathon-card {
       min-width: 320px;
       background-color: #1a1a1a;
       border-radius: 15px;
@@ -114,7 +124,8 @@
       transition: transform 0.3s;
     }
 
-    .project-card img {
+    .project-card img,
+    .hackathon-card img {
       width: 100%;
       height: 200px;
       object-fit: cover;
@@ -122,23 +133,27 @@
       margin-bottom: 15px;
     }
 
-    .project-card h4 {
+    .project-card h4,
+    .hackathon-card h4 {
       color: #87ceeb;
       font-size: 1.5rem;
       margin-bottom: 10px;
     }
 
-    .project-card p {
+    .project-card p,
+    .hackathon-card p {
       font-size: 1rem;
       color: #b0c9de;
       line-height: 1.5;
     }
 
-    .project-card:hover {
+    .project-card:hover,
+    .hackathon-card:hover {
       transform: translateY(-10px);
     }
 
-    .project-card a {
+    .project-card a,
+    .hackathon-card a {
       color: #87ceeb;
       text-decoration: underline;
       display: inline-block;
@@ -170,6 +185,46 @@
       opacity: 1;
       transform: translateY(0);
     }
+    .contact-container {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  padding: 20px 0;
+  scrollbar-width: thin;
+}
+
+.contact-card {
+  min-width: 220px;
+  background-color: #1a1a1a;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(135, 206, 235, 0.2);
+  transition: transform 0.3s;
+}
+
+.contact-card:hover {
+  transform: translateY(-10px);
+}
+
+.contact-card img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.contact-card a {
+  color: #87ceeb;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.contact-card a:hover {
+  color: #ffffff;
+}
+
   </style>
 </head>
 
@@ -179,13 +234,17 @@
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#hackathons">Hackathons</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
+  <!-- Hero Section Updated -->
   <section class="hero fade-in">
-    <h2>Hello, I'm Nagaraj Neelam</h2>
-    <p>Backend Developer | AI Enthusiast | DSA Learner. Passionate about building scalable systems and solving real-world problems through technology.</p>
+    <div class="hero-text">
+      <h2>Hello, I'm Nagaraj Neelam</h2>
+      <p>Backend Developer | AI Enthusiast | DSA Learner. Passionate about building scalable systems and solving real-world problems through technology.</p>
+    </div>
     <img src="nagaraj_img2.jpg" alt="Hero Image">
   </section>
 
@@ -207,9 +266,17 @@
       <div class="project-card">
         <img src="Medivault.png" alt="MediVault">
         <h4>MediVault</h4>
-        <p>Developed a secure Electronic Health Record (EHR) management system that stores and manages sensitive patient data efficiently, ensuring privacy and easy accessibility.</p>
+        <p>Developed a secure Electronic Health Record (EHR) system ensuring privacy and easy access.</p>
         <a href="https://medi-vault-eight.vercel.app/" target="_blank">View Project</a>
       </div>
+      
+      <div class="hackathon-card">
+         <img src="geosync.png" alt="GeoSync Project">
+        <h4>GeoSync</h4>
+        <p>Built for NASA Space Apps 2024, GeoSync notifies users of Landsat satellite passes over chosen locations and provides real-time access to Surface Reflectance data for ground comparison.</p>
+        <a href="https://geosync-ruby.vercel.app" target="_blank">View Project</a>
+      </div>
+
 
       <div class="project-card">
         <img src="https://www.nist.gov/sites/default/files/styles/2800_x_2800_limit/public/images/2020/10/20/RemotePatient_Monitoring_Blog_960x630_v4-01_0.png?itok=7ckrxUCG" alt="AI Virtual Doctor">
@@ -220,12 +287,74 @@
     </div>
   </section>
 
-  <section id="contact" class="contact fade-in">
-    <h3>Contact</h3>
-    <p>Email: your-email@example.com</p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/nagarajneelam">linkedin.com/in/nagarajneelam</a></p>
-    <p>GitHub: <a href="https://github.com/neelamnagarajgithub">github.com/nagarajneelam</a></p>
+  <!-- Hackathons Section -->
+  <section id="hackathons" class="fade-in">
+    <h3>Hackathons</h3>
+    <div class="hackathons-container">
+      <div class="hackathon-card">
+        <img src="nasaspace.jpg" alt="Hackathon 1">
+        <h4>Nasa Space Apps Challenge</h4>
+        <p>Built for NASA Space Apps 2024, GeoSync notifies users of Landsat satellite passes over chosen locations and provides real-time access to Surface Reflectance data for ground comparison.</p>
+        <a href="https://www.spaceappschallenge.org/nasa-space-apps-2024/find-a-team/nagarajs-team/" target="_blank">View Credential</a>
+      </div>
+
+      <div class="hackathon-card">
+        <img src="genzverse.png" alt="Genzverse Hackathon">
+        <h4>Genzverse</h4>
+        <p>Our team was one of the <b>finalist teams</b> at the <b>Genzeon Company Hackathon - Genzverse</b>, where we presented <b>Health Nexus</b>, an AI-powered smart healthcare solution.</p>
+        <a href="https://health-nexus-chi.vercel.app/" target="_blank">View Credential</a>
+      </div>
+
+
+      <div class="hackathon-card">
+        <img src="hackprix.jpg" alt="Hackathon 3">
+        <h4>HackPrix</h4>
+        <p>Designed an AI agent capable of real-time analysis of patient data to suggest treatment paths.</p>
+        <a href="#" target="_blank">View Credential</a>
+      </div>
+
+      <div class="hackathon-card">
+          <img src="Cognizance.jpg" alt="Hackathon 4">
+        <h4>Cognizance, IIT Roorkee</h4>
+        <p>Designed and developed a website for the startup <b>Vitacure (formerly HealConnect)</b>. We were invited to present it at the <b>startup event</b> during <b>Techfest, IIT Roorkee</b>.</p>
+        <a href="#" target="_blank">View Credential</a>
+      </div>
+
+      <div class="hackathon-card">
+        <img src="hackathon5.jpg" alt="Hackathon 5">
+        <h4>PecHacks</h4>
+         <p>Designed and developed <b>LawConnect</b>, a legal consultation platform, securing a place in the <b>Top 50 teams</b> at the MLH hackathon, <b>PEC Hacks</b>.</p>
+        <a href="#" target="_blank">View Credential</a>
+      </div>
+    </div>
   </section>
+
+  <section id="contact" class="contact fade-in">
+  <h3>Contact</h3>
+  <div class="contact-container">
+    <div class="contact-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
+      <a href="https://github.com/nagarajneelam" target="_blank">GitHub</a>
+    </div>
+
+    <div class="contact-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+      <a href="https://linkedin.com/in/nagarajneelam" target="_blank">LinkedIn</a>
+    </div>
+
+    <div class="contact-card">
+      <img src="https://avatars.githubusercontent.com/u/48905764?s=280&v=4" alt="Devfolio">
+      <a href="https://devfolio.co/@nagarajneelam" target="_blank">Devfolio</a>
+    </div>
+
+    <div class="contact-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968885.png" alt="Medium">
+      <a href="https://medium.com/@nagarajneelam" target="_blank">Medium</a>
+    </div>
+  </div>
+</section>
+
+
 
   <footer>
     <p>&copy; 2025 Nagaraj Neelam. All rights reserved.</p>
