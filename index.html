@@ -1,62 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Nagaraj Neelam">
-  <title>Nagaraj Neelam | Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+  <title>Nagaraj Neelam - Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Outfit', sans-serif;
+    }
 
-  <header class="hero">
+    body {
+      background-color: #0d0d0d;
+      color: #d9e6f2;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      padding: 80px 10%;
+      text-align: center;
+      background-color: #000;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      color: #87ceeb;
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 1s ease;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #87ceeb;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 1s ease 0.3s;
+    }
+
+    section {
+      padding: 60px 10%;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 1s ease;
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: #87ceeb;
+      border-bottom: 2px solid #87ceeb;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+    }
+
+    .projects-flex {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      padding-bottom: 15px;
+    }
+
+    .project-card {
+      min-width: 320px;
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-left: 5px solid #87ceeb;
+      box-shadow: 0 0 10px rgba(135, 206, 235, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+      flex-shrink: 0;
+    }
+
+    .project-card h3 {
+      color: #87ceeb;
+      margin-bottom: 10px;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 20px rgba(135, 206, 235, 0.4);
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    a {
+      color: #87ceeb;
+      text-decoration: none;
+    }
+
+    footer {
+      background-color: #000;
+      color: #87ceeb;
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 50px;
+    }
+
+    .show {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
     <h1>Nagaraj Neelam</h1>
-    <p>Aspiring Software Engineer | MERN Stack | AI & Backend Enthusiast | FAANG Prep 🚀</p>
-    <div class="buttons">
-      <a href="#" class="btn">Download Resume</a>
-      <a href="#contact" class="btn">Contact Me</a>
-    </div>
+    <p>Backend Developer | AI & ML Enthusiast | DSA Learner</p>
   </header>
 
   <section class="about">
     <h2>About Me</h2>
-    <p>Passionate about building scalable web applications, AI-powered systems, and currently focused on FAANG-level DSA preparation and backend development.</p>
-  </section>
-
-  <section class="projects">
-    <h2>Projects</h2>
-    <div class="project-card">
-      <h3>Health Nexus</h3>
-      <p>Smart healthcare appointment system that analyzes health records and recommends doctors based on specialization.</p>
-    </div>
-    <div class="project-card">
-      <h3>MediVault</h3>
-      <p>Secure EHR management platform with OpenAPI integration.</p>
-    </div>
-    <div class="project-card">
-      <h3>AI Virtual Doctor</h3>
-      <p>AI agent designed for virtual medical consultations (Ongoing).</p>
-    </div>
+    <p>I am a backend developer passionate about building scalable applications. Currently diving deep into DSA, ML, and system design. My goal is to secure a FAANG role within 6 months by combining strong fundamentals with impactful projects.</p>
   </section>
 
   <section class="skills">
     <h2>Skills</h2>
     <ul>
-      <li>JavaScript, TypeScript, Node.js, Express.js, MongoDB, React.js, NestJS</li>
-      <li>Databases, System Design, DSA, AI/ML</li>
+      <li>Backend: Node.js, Express.js, NestJS</li>
+      <li>Frontend: React (basic)</li>
+      <li>Databases: MongoDB, SQL</li>
+      <li>AI/ML: Python, Scikit-learn</li>
+      <li>DSA: Recursion, Trees, Graphs, DP</li>
     </ul>
   </section>
 
-  <section class="contact" id="contact">
+  <section class="projects">
+    <h2>Projects</h2>
+    <div class="projects-flex">
+      <div class="project-card">
+        <h3>Health Nexus</h3>
+        <p>Smart healthcare appointment system with AI-driven doctor recommendations based on analyzed health records.</p>
+        <ul>
+          <li>Analyzed 100+ health records</li>
+          <li>Reduced booking time by 50%</li>
+        </ul>
+      </div>
+
+      <div class="project-card">
+        <h3>MediVault API</h3>
+        <p>Developed a secure OpenAPI backend to manage health data with authentication and authorization.</p>
+      </div>
+
+      <div class="project-card">
+        <h3>AI Virtual Doctor (Ongoing)</h3>
+        <p>AI-driven virtual doctor for real-time consultation and appointment scheduling.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
     <h2>Contact</h2>
-    <p>Email: <a href="mailto:nagaraj@example.com">nagaraj@example.com</a></p>
-    <p>GitHub: <a href="https://github.com/nagaraj-neelam" target="_blank">github.com/nagaraj-neelam</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/nagarajneelam" target="_blank">linkedin.com/in/nagarajneelam</a></p>
+    <p>Email: neelamnagaraj99@gmail.com</p>
+    <p>LinkedIn: <a href="#">linkedin.com/in/nagarajneelam</a></p>
+    <p>GitHub: <a href="#">https://github.com/neelamnagarajgithub</a></p>
   </section>
 
   <footer>
-    <p>© 2025 Nagaraj Neelam. All Rights Reserved.</p>
+    <p>&copy; 2025 Nagaraj Neelam. All rights reserved.</p>
   </footer>
 
+  <script>
+    const sections = document.querySelectorAll('section, header h1, header p');
+
+    const reveal = () => {
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop < window.innerHeight - 50) {
+          section.classList.add('show');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', reveal);
+    window.addEventListener('load', reveal);
+  </script>
 </body>
+
 </html>
