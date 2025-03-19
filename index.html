@@ -5,95 +5,143 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nagaraj Neelam - Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
       font-family: 'Outfit', sans-serif;
     }
 
     body {
       background-color: #0d0d0d;
       color: #d9e6f2;
-      line-height: 1.6;
       overflow-x: hidden;
     }
 
-    header {
-      padding: 80px 10%;
-      text-align: center;
+    nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 30px 8%;
       background-color: #000;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
     }
 
-    header h1 {
+    nav h1 {
+      color: #87ceeb;
+      font-size: 2.5rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 40px;
+    }
+
+    nav a {
+      color: #87ceeb;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 10% 50px;
+    }
+
+    .hero h2 {
+      color: #87ceeb;
       font-size: 3.5rem;
-      color: #87ceeb;
       margin-bottom: 20px;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 1s ease;
     }
 
-    header p {
-      font-size: 1.2rem;
-      color: #87ceeb;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 1s ease 0.3s;
+    .hero p {
+      color: #b0c9de;
+      font-size: 1.3rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .hero img {
+      margin-top: 40px;
+      width: 60%;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(135, 206, 235, 0.3);
     }
 
     section {
-      padding: 60px 10%;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 1s ease;
+      padding: 80px 10%;
     }
 
-    h2 {
-      font-size: 2rem;
+    section h3 {
       color: #87ceeb;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
       border-bottom: 2px solid #87ceeb;
-      padding-bottom: 10px;
-      margin-bottom: 30px;
+      display: inline-block;
     }
 
-    .projects-flex {
+    .about p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #b0c9de;
+    }
+
+    .projects-container {
       display: flex;
-      gap: 20px;
+      gap: 30px;
       overflow-x: auto;
-      padding-bottom: 15px;
+      padding-bottom: 20px;
+      scrollbar-width: thin;
     }
 
     .project-card {
       min-width: 320px;
       background-color: #1a1a1a;
+      border-radius: 15px;
       padding: 20px;
-      border-left: 5px solid #87ceeb;
-      box-shadow: 0 0 10px rgba(135, 206, 235, 0.2);
-      transition: transform 0.3s, box-shadow 0.3s;
-      flex-shrink: 0;
+      color: #d9e6f2;
+      box-shadow: 0 0 15px rgba(135, 206, 235, 0.2);
+      transition: transform 0.3s;
     }
 
-    .project-card h3 {
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .project-card h4 {
       color: #87ceeb;
+      font-size: 1.5rem;
       margin-bottom: 10px;
+    }
+
+    .project-card p {
+      font-size: 1rem;
+      color: #b0c9de;
+      line-height: 1.5;
     }
 
     .project-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 0 20px rgba(135, 206, 235, 0.4);
     }
 
-    ul li {
-      margin-bottom: 10px;
-    }
-
-    a {
-      color: #87ceeb;
-      text-decoration: none;
+    .contact p {
+      color: #b0c9de;
+      font-size: 1.2rem;
+      line-height: 1.8;
     }
 
     footer {
@@ -104,61 +152,65 @@
       margin-top: 50px;
     }
 
-    .show {
-      opacity: 1 !important;
-      transform: translateY(0) !important;
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s, transform 1s;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <h1>Nagaraj Neelam</h1>
-    <p>Backend Developer | AI & ML Enthusiast | DSA Learner</p>
-  </header>
-
-  <section class="about">
-    <h2>About Me</h2>
-    <p>I am a backend developer passionate about building scalable applications. Currently diving deep into DSA, ML, and system design. My goal is to secure a FAANG role within 6 months by combining strong fundamentals with impactful projects.</p>
-  </section>
-
-  <section class="skills">
-    <h2>Skills</h2>
+  <nav>
+    <h1>Nagaraj</h1>
     <ul>
-      <li>Backend: Node.js, Express.js, NestJS</li>
-      <li>Frontend: React (basic)</li>
-      <li>Databases: MongoDB, SQL</li>
-      <li>AI/ML: Python, Scikit-learn</li>
-      <li>DSA: Recursion, Trees, Graphs, DP</li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
+  </nav>
+
+  <section class="hero fade-in">
+    <h2>Hello, I'm Nagaraj Neelam</h2>
+    <p>Backend Developer | AI Enthusiast | DSA Learner. Passionate about building scalable systems and solving real-world problems through technology.</p>
+    <img src="https://source.unsplash.com/800x400/?technology,developer" alt="Hero Image">
   </section>
 
-  <section class="projects">
-    <h2>Projects</h2>
-    <div class="projects-flex">
+  <section id="about" class="about fade-in">
+    <h3>About Me</h3>
+    <p>I’m a backend developer experienced with Node.js, Express, and NestJS. Currently focusing on AI agents and system design. Pursuing my FAANG dream by combining strong DSA skills, system design, and impactful open-source projects.</p>
+  </section>
+
+  <section id="projects" class="fade-in">
+    <h3>Projects</h3>
+    <div class="projects-container">
       <div class="project-card">
-        <h3>Health Nexus</h3>
-        <p>Smart healthcare appointment system with AI-driven doctor recommendations based on analyzed health records.</p>
-        <ul>
-          <li>Analyzed 100+ health records</li>
-          <li>Reduced booking time by 50%</li>
-        </ul>
+        <img src="https://source.unsplash.com/400x300/?healthcare" alt="Health Nexus">
+        <h4>Health Nexus</h4>
+        <p>AI-powered smart healthcare appointment system analyzing 100+ patient records to recommend doctors.</p>
       </div>
 
       <div class="project-card">
-        <h3>MediVault API</h3>
-        <p>Developed a secure OpenAPI backend to manage health data with authentication and authorization.</p>
+        <img src="https://source.unsplash.com/400x300/?api,technology" alt="MediVault API">
+        <h4>MediVault API</h4>
+        <p>Developed a secure OpenAPI for managing healthcare data with 100+ endpoints and full authentication.</p>
       </div>
 
       <div class="project-card">
-        <h3>AI Virtual Doctor (Ongoing)</h3>
-        <p>AI-driven virtual doctor for real-time consultation and appointment scheduling.</p>
+        <img src="https://source.unsplash.com/400x300/?ai,doctor" alt="AI Virtual Doctor">
+        <h4>AI Virtual Doctor</h4>
+        <p>Built an AI-driven virtual doctor for real-time appointment booking and health consultations.</p>
       </div>
     </div>
   </section>
 
-  <section class="contact">
-    <h2>Contact</h2>
+  <section id="contact" class="contact fade-in">
+    <h3>Contact</h3>
     <p>Email: neelamnagaraj99@gmail.com</p>
     <p>LinkedIn: <a href="#">linkedin.com/in/nagarajneelam</a></p>
     <p>GitHub: <a href="#">https://github.com/neelamnagarajgithub</a></p>
@@ -169,20 +221,21 @@
   </footer>
 
   <script>
-    const sections = document.querySelectorAll('section, header h1, header p');
+    const fadeEls = document.querySelectorAll('.fade-in');
 
-    const reveal = () => {
-      sections.forEach(section => {
-        const sectionTop = section.getBoundingClientRect().top;
-        if (sectionTop < window.innerHeight - 50) {
-          section.classList.add('show');
+    const appearOnScroll = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
         }
       });
-    }
+    }, { threshold: 0.3 });
 
-    window.addEventListener('scroll', reveal);
-    window.addEventListener('load', reveal);
+    fadeEls.forEach(el => {
+      appearOnScroll.observe(el);
+    });
   </script>
+
 </body>
 
 </html>
