@@ -105,7 +105,7 @@ section h3 {
 
 .about p {
   font-size: 1.2rem;
-  line-height: 1.8;
+  line-height: 2;
   color: #b0c9de;
 }
 
@@ -191,43 +191,284 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Contact Section */
+
 .contact-container {
-display: flex;
-gap: 30px;
-overflow-x: auto;
-padding: 20px 0;
-scrollbar-width: thin;
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  padding: 20px 0;
+  scrollbar-width: none; /* For Firefox */
+}
+
+.contact-container::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
 }
 
 .contact-card {
-min-width: 220px;
-background-color: #1a1a1a;
-border-radius: 15px;
-padding: 20px;
-text-align: center;
-box-shadow: 0 0 15px rgba(135, 206, 235, 0.2);
-transition: transform 0.3s;
+  min-width: 220px;
+  background-color: #1a1a1a;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(135, 206, 235, 0.2);
+  transition: transform 0.3s;
 }
 
 .contact-card:hover {
-transform: translateY(-10px);
+  transform: translateY(-10px);
 }
 
 .contact-card img {
-width: 50px;
-height: 50px;
-object-fit: contain;
-margin-bottom: 15px;
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-bottom: 15px;
 }
 
 .contact-card a {
-color: #87ceeb;
-text-decoration: none;
-font-size: 1.2rem;
-font-weight: bold;
+  color: #87ceeb;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .contact-card a:hover {
-color: #ffffff;
+  color: #ffffff;
 }
 
+/* General Responsive Styles */
+body {
+  font-size: 16px;
+}
+
+/* For screens smaller than 1024px (Tablets) */
+@media (max-width: 1024px) {
+  nav {
+    flex-wrap: wrap;
+    padding: 20px 5%;
+  }
+
+  nav ul {
+    gap: 20px;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 50px 5%;
+  }
+
+  .hero-text {
+    padding-right: 0;
+  }
+
+  .hero img {
+    width: 80%;
+    max-width: 400px;
+    margin-top: 20px;
+  }
+
+  section {
+    padding: 60px 5%;
+  }
+
+  .projects-container,
+  .hackathons-container {
+    gap: 20px;
+  }
+
+  .project-card,
+  .hackathon-card {
+    min-width: 280px;
+  }
+}
+
+/* For screens smaller than 768px (Mobile) */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav h1 {
+    font-size: 2rem;
+  }
+
+  .hero h2 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .resume-btn {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+
+  .projects-container,
+  .hackathons-container {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
+
+  .project-card,
+  .hackathon-card {
+    min-width: 240px;
+  }
+
+  .contact-container {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  footer {
+    font-size: 0.9rem;
+  }
+}
+
+/* For screens smaller than 480px (Small Mobile) */
+@media (max-width: 480px) {
+  nav h1 {
+    font-size: 1.8rem;
+  }
+
+  nav ul {
+    gap: 10px;
+  }
+
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  .resume-btn {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+
+  .project-card,
+  .hackathon-card {
+    min-width: 200px;
+  }
+
+  .contact-card {
+    min-width: 180px;
+  }
+
+  footer {
+    font-size: 0.8rem;
+  }
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  background-color: #87ceeb;
+  border-radius: 5px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Hide navigation links on smaller screens */
+.nav-links {
+  display: flex;
+  gap: 40px;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 10px;
+    background-color: #000;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* Scroll Controls */
+.scroll-controls {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 0; /* Remove any margin */
+}
+
+/* Scroll Buttons */
+.scroll-btn {
+  position: absolute;
+  top: 50%; /* Adjust this value to position the buttons lower */
+  transform: translateY(-50%);
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  z-index: 10; /* Ensure buttons are above the cards */
+}
+
+.scroll-btn.left-btn {
+  left: -50px; /* Adjust position to the left */
+}
+
+.scroll-btn.right-btn {
+  right: -50px; /* Adjust position to the right */
+}
+
+.scroll-btn:hover {
+  background-color: #555;
+}
+
+/* Hide Scrollbar */
+.projects-container,
+.hackathons-container {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px;
+  position: relative;
+  scrollbar-width: none; /* For Firefox */
+}
+
+.projects-container::-webkit-scrollbar,
+.hackathons-container::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
