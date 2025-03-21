@@ -28,13 +28,13 @@ const fadeEls = document.querySelectorAll('.fade-in');
 
   
   // Scroll Left
-  function scrollLeft(containerId) {
+  function scrollConLeft(containerId) {
     const container = document.getElementById(containerId);
-    container.scrollLeft -= 200; // Adjust scroll distance as needed
+    container.scrollLeft -= 300; // Adjust scroll distance as needed
   }
 
   // Scroll Right
-  function scrollRight(containerId) {
+  function scrollConRight(containerId) {
     const container = document.getElementById(containerId);
     container.scrollLeft += 300; // Adjust scroll distance as needed
   }

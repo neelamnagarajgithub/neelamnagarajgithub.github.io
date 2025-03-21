@@ -14,7 +14,7 @@ body {
 nav {
   display: flex;
   justify-content: space-between;
-  padding: 30px 8%;
+  padding: 17px 8%;
   background-color: #000;
   align-items: center;
   position: sticky;
