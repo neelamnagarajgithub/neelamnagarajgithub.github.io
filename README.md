@@ -1,43 +1,68 @@
-# 🚀 Nagaraj Neelam - Personal Portfolio
 
-A professional, clean, and responsive personal portfolio website built with **React**, **Tailwind CSS**, **Framer Motion**, and **Shadcn UI**. This portfolio highlights my skills, projects, and journey as a software developer with a focus on backend development, AI, and MERN stack.
+# Nagaraj Neelam - Portfolio
 
----
+Welcome to my personal portfolio website! 
 
-## 🎨 Design & Tech Stack
-- **Typography:** Modern sans-serif fonts for better readability
-- **Color Palette:** 
-  - Primary: `#1A1A1A` (Dark Grey)
-  - Secondary: `#3D3D3D` (Medium Grey)
-  - Background: White
-- **Frameworks/Libraries:** 
-  - React.js
-  - Tailwind CSS
-  - Framer Motion (for smooth animations)
-  - Shadcn UI (for elegant UI components)
-  - Lucide Icons
+## 🌟 Features
 
----
+- **About Me**: Learn more about my background and professional journey.
+- **Skills**: A detailed list of my technical skills, including Full Stack Development, Blockchain, Tools, and Version Control.
+- **Projects**: A showcase of my key projects with descriptions and links.
+- **Hackathons**: Highlights of my hackathon achievements and contributions.
+- **Contact Section**: Links to my email, GitHub, LinkedIn, Devfolio, and Medium profiles.
 
-## 📂 Project Highlights
-### ✅ About Me
-Passionate about developing scalable web applications and AI-powered systems. Currently focused on **FAANG-level DSA**, **System Design**, and building impactful **AI-driven healthcare projects**.
+## 🛠️ Technologies Used
 
----
+- **Frontend**: HTML, CSS, JavaScript
+- **Styling**: Responsive design with CSS media queries
+- **Icons**: Flaticon and custom assets
+- **Hosting**: GitHub Pages
 
-### ✅ Featured Projects
-- **Health Nexus:** A smart healthcare appointment system that analyzes health records and recommends doctors based on specializations.
-- **MediVault:** A secure Electronic Health Record (EHR) management platform with OpenAPI integration.
-- **AI Virtual Doctor (In Progress):** AI agent designed for virtual medical consultations.
+## 📂 Project Structure
 
----
+```
+neelamnagarajgithub.github.io
+├── index.html       # Main HTML file
+├── styles.css       # Styling for the website
+├── script.js        # JavaScript for interactivity
+├── README.md        # Project documentation
+├── assets/          # Images and other assets
+└── Nagaraj_Neelam_Resume.pdf # Resume file
+```
 
-### ✅ Skills
-- **Programming:** JavaScript, TypeScript, Node.js, Express.js, React.js, MongoDB, NestJS
-- **Concepts:** Databases, System Design, DSA, AI/ML
-- **Tools:** Git, Postman, Docker (basic), RESTful APIs
+## 🚀 How to Run Locally
 
----
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/neelamnagarajgithub/neelamnagarajgithub.github.io.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd neelamnagarajgithub.github.io
+   ```
+3. Open `index.html` in your browser to view the website.
 
 ## 🌐 Live Demo
-_Coming Soon or add your deployment link here:_
+
+Check out the live version of my portfolio here: [Nagaraj Neelam - Portfolio](https://www.nagarajneelam.me/)
+
+## 📧 Contact
+
+Feel free to reach out to me via:
+- **Email**: [neelamnagaraj99@gmail.com](mailto:neelamnagaraj99@gmail.com)
+- **GitHub**: [neelamnagarajgithub](https://github.com/neelamnagarajgithub)
+- **LinkedIn**: [Nagaraj Neelam](https://linkedin.com/in/nagarajneelam)
+- **Devfolio**: [Nagaraj Neelam](https://devfolio.co/@nagarajneelam)
+- **Medium**: [Nagaraj Neelam](https://medium.com/@nagarajneelam)
+
+## 📝 License
+
+This project is licensed under the MIT License. Feel free to use and modify it as needed.
+```
+
+---
+
+### **How to Use**
+1. Save this content in your README.md file.
+2. Customize the links and descriptions as needed.
+3. Commit and push the changes to your repository.
