@@ -1,4 +1,4 @@
-// Example: Smooth scroll (if you want)
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
@@ -59,3 +59,5 @@ const fadeEls = document.querySelectorAll('.fade-in');
   // Initialize auto-scrolling for the projects container
   autoScroll('projects-container');
   autoScroll('hackathons-container');
+
+ 

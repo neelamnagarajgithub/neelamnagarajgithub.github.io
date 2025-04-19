@@ -288,6 +288,7 @@ body {
   }
 }
 
+
 /* For screens smaller than 768px (Mobile) */
 @media (max-width: 768px) {
   nav {
@@ -557,3 +558,4 @@ body {
   line-height: 1.6;
   color: #b0c9de;
 }
+
