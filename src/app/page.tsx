@@ -133,11 +133,11 @@ export default function Portfolio() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-40 px-6 lg:px-[72px] z-10">
+      <section className="relative pt-19 pb-40 px-6 lg:px-[72px] z-10">
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <FadeIn delay={100}>
-              <div className="space-y-8 max-w-[540px]">
+              <div className="space-y-6 max-w-[540px]">
                 <h1 className="text-4xl lg:text-6xl font-bold leading-tight tracking-tight text-white">
                   Crafting reliable backends for ambitious products
                 </h1>
@@ -275,7 +275,8 @@ export default function Portfolio() {
                       <div className="pl-4 text-[rgb(var(--color-text-secondary))]">
                         server.Start(<span className="text-[rgb(var(--color-accent-peach))]">":8080"</span>)
                       </div>
-                      <div className="text-[rgb(var(--color-text-secondary))]">}</div>
+                      <div className="text-[rgb(var(--color-text-secondary))]">{"}"}</div>
+
                     </div>
                   </div>
                 </div>
