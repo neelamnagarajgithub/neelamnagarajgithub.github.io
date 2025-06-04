@@ -1,68 +1,36 @@
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-# Nagaraj Neelam - Portfolio
+## Getting Started
 
-Welcome to my personal portfolio website! 
+First, run the development server:
 
-## 🌟 Features
-
-- **About Me**: Learn more about my background and professional journey.
-- **Skills**: A detailed list of my technical skills, including Full Stack Development, Blockchain, Tools, and Version Control.
-- **Projects**: A showcase of my key projects with descriptions and links.
-- **Hackathons**: Highlights of my hackathon achievements and contributions.
-- **Contact Section**: Links to my email, GitHub, LinkedIn, Devfolio, and Medium profiles.
-
-## 🛠️ Technologies Used
-
-- **Frontend**: HTML, CSS, JavaScript
-- **Styling**: Responsive design with CSS media queries
-- **Icons**: Flaticon and custom assets
-- **Hosting**: GitHub Pages
-
-## 📂 Project Structure
-
-```
-neelamnagarajgithub.github.io
-├── index.html       # Main HTML file
-├── styles.css       # Styling for the website
-├── script.js        # JavaScript for interactivity
-├── README.md        # Project documentation
-├── assets/          # Images and other assets
-└── Nagaraj_Neelam_Resume.pdf # Resume file
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-## 🚀 How to Run Locally
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/neelamnagarajgithub/neelamnagarajgithub.github.io.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd neelamnagarajgithub.github.io
-   ```
-3. Open `index.html` in your browser to view the website.
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## 🌐 Live Demo
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-Check out the live version of my portfolio here: [Nagaraj Neelam - Portfolio](https://www.nagarajneelam.me/)
+## Learn More
 
-## 📧 Contact
+To learn more about Next.js, take a look at the following resources:
 
-Feel free to reach out to me via:
-- **Email**: [neelamnagaraj99@gmail.com](mailto:neelamnagaraj99@gmail.com)
-- **GitHub**: [neelamnagarajgithub](https://github.com/neelamnagarajgithub)
-- **LinkedIn**: [Nagaraj Neelam](https://linkedin.com/in/nagarajneelam)
-- **Devfolio**: [Nagaraj Neelam](https://devfolio.co/@nagarajneelam)
-- **Medium**: [Nagaraj Neelam](https://medium.com/@nagarajneelam)
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## 📝 License
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-This project is licensed under the MIT License. Feel free to use and modify it as needed.
-```
+## Deploy on Vercel
 
----
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-### **How to Use**
-1. Save this content in your README.md file.
-2. Customize the links and descriptions as needed.
-3. Commit and push the changes to your repository.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
