@@ -99,10 +99,10 @@ export const ScrollReveal = forwardRef<HTMLDivElement, ScrollRevealProps>(
               return React.cloneElement(child, {
                 key: index,
                 style: {
-                  ...child.props.style,
+                    ...((child as React.ReactElement<any, any>).props.style || {}),
                   ...childStyles,
                 },
-              });
+              }as React.HTMLAttributes<HTMLElement>);
             }
             return child;
           })}
