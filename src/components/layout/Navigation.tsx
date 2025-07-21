@@ -14,7 +14,7 @@ export default function Navigation({ mobileMenuOpen, setMobileMenuOpen, scrollTo
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 h-16 bg-black/80 backdrop-blur-md border-b border-[rgb(var(--color-border-hairline))]">
       <div className="container mx-auto px-6 lg:px-[72px] h-full flex items-center justify-between">
-        <div className="text-xl font-bold text-white">N.</div>
+        <div className="text-xl font-bold text-white">Nagaraj.</div>
 
         <div className="hidden md:flex items-center space-x-8">
           <button onClick={() => scrollToSection('about')} className="text-sm text-[rgb(var(--color-text-secondary))] hover:text-white transition-colors">
@@ -28,9 +28,6 @@ export default function Navigation({ mobileMenuOpen, setMobileMenuOpen, scrollTo
           </button>
           <button onClick={() => scrollToSection('hackathons')} className="text-sm text-[rgb(var(--color-text-secondary))] hover:text-white transition-colors">
             Hackathons
-          </button>
-          <button onClick={() => scrollToSection('testimonials')} className="text-sm text-[rgb(var(--color-text-secondary))] hover:text-white transition-colors">
-            Testimonials
           </button>
           <button onClick={() => scrollToSection('contact')} className="text-sm text-[rgb(var(--color-text-secondary))] hover:text-white transition-colors">
             Contact

@@ -73,7 +73,7 @@ export default function Footer({ scrollToSection }: FooterProps) {
         <FadeIn delay={200}>
           <div className="mt-12 pt-8 border-t border-[rgb(var(--color-border-hairline))] text-center">
             <p className="text-sm text-[rgb(var(--color-text-muted))]">
-              © 2024 Nagaraj. Crafted with Next.js.
+              © 2024 Nagaraj. Crafted with Technology.
             </p>
           </div>
         </FadeIn>

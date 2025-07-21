@@ -3,33 +3,59 @@ import { Check } from "lucide-react";
 
 export default function SkillsSection() {
   const skills = [
-    "Micro-services & Domain-Driven Design",
-    "Cloud-native deployments (AWS, Docker, k8s)",
-    "Performance monitoring & observability"
+    {
+      category: "Programming Languages",
+      items: ["C", "C++", "Java", "JavaScript"]
+    },
+    {
+      category: "Frameworks & Databases",
+      items: ["React.js", "Node.js", "Express.js", "NestJS", "PostgreSQL", "MongoDB", "Redis", "LangChain"]
+    },
+    {
+      category: "Blockchain",
+      items: ["Solidity", "Hyperledger Fabric", "Ethers.js", "Remix", "Ganache", "Truffle", "Hardhat"]
+    },
+    {
+      category: "Tools",
+      items: ["Postman", "Stripe", "Twilio", "Prisma", "Jest", "Render", "Docker", "Git", "GitHub"]
+    },
+    // {
+    //   category: "Other",
+    //   items: [
+    //     "Micro-services & Domain-Driven Design",
+    //     "Cloud-native deployments (AWS, Docker, k8s)",
+    //     "Performance monitoring & observability"
+    //   ]
+    // }
   ];
-  
+
   return (
     <section id="skills" className="py-24 px-6 lg:px-[72px] relative z-10">
       <div className="container mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <FadeIn>
+            <h2 className="text-3xl lg:text-5xl font-bold text-white mb-12 text-right tracking-tight">
+            My Skills
+          </h2>
             <div className="space-y-8">
-              <h2 className="text-3xl lg:text-5xl font-bold text-white">
-                Expertise that powers your product
-              </h2>
-
-              <div className="space-y-6">
+               
+              <div className="space-y-8">
                 {skills.map((skill, idx) => (
-                  <ScrollReveal key={idx} delay={100 + (idx * 100)}>
-                    <div className="flex items-center space-x-4">
-                      <div className="w-6 h-6 rounded-full bg-[rgb(var(--color-accent-lavender))]/20 flex items-center justify-center">
-                        <Check className="w-4 h-4 text-[rgb(var(--color-accent-lavender))]" />
-                      </div>
-                      <span className="text-lg text-[rgb(var(--color-text-secondary))]">
-                        {skill}
-                      </span>
+                  <div key={idx}>
+                    <div className="font-semibold text-[rgb(var(--color-accent-lavender))] mb-2 text-lg">
+                      {skill.category}
                     </div>
-                  </ScrollReveal>
+                    <div className="flex flex-wrap gap-3">
+                      {skill.items.map((item, i) => (
+                        <ScrollReveal key={i} delay={100 + (i * 50)}>
+                          <div className="flex items-center space-x-2 bg-[rgb(var(--color-bg-elevated))] border border-[rgb(var(--color-border-hairline))] rounded-full px-4 py-1">
+                            <Check className="w-4 h-4 text-[rgb(var(--color-accent-lavender))]" />
+                            <span className="text-[rgb(var(--color-text-secondary))] text-base">{item}</span>
+                          </div>
+                        </ScrollReveal>
+                      ))}
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>

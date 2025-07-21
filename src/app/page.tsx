@@ -10,6 +10,8 @@ import SkillsSection from "@/components/sections/SkillsSection";
 import ProjectsSection from "@/components/sections/ProjectsSection";
 import HackathonsSection from "@/components/sections/HackathonsSection";
 import ContactSection from "@/components/sections/ContactSection";
+import UpcomingProjectsSection from "@/components/sections/UpcomingProjectSection";
+import ExperienceSection from "@/components/sections/ExperienceSection"; 
 
 export default function Portfolio() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -34,8 +36,10 @@ export default function Portfolio() {
       {/* Main Content Sections */}
       <HeroSection scrollToSection={scrollToSection} />
       <AboutSection />
+       <ExperienceSection />   
       <SkillsSection />
       <ProjectsSection />
+      <UpcomingProjectsSection />
       <HackathonsSection />
       <ContactSection scrollToSection={scrollToSection} />
       <Footer scrollToSection={scrollToSection} />
