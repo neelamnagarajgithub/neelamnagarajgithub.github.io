@@ -35,9 +35,16 @@ export default function Navigation({ mobileMenuOpen, setMobileMenuOpen, scrollTo
         </div>
 
         <div className="flex items-center space-x-4">
-          <Button className="hidden sm:flex bg-[rgb(var(--color-accent-mint))] text-black hover:bg-[rgb(var(--color-accent-mint))]/90 h-9 px-4 text-sm font-medium">
-            Download CV
-          </Button>
+          <a
+            href="Nagaraj_Neelam_Resume.pdf"
+            download
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button className="hidden sm:flex bg-[rgb(var(--color-accent-mint))] text-black hover:bg-[rgb(var(--color-accent-mint))]/90 h-9 px-4 text-sm font-medium">
+              Download CV
+            </Button>
+          </a>
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
