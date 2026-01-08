@@ -13,10 +13,10 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
           <FadeIn delay={100}>
             <div className="space-y-6 max-w-[540px]">
               <h1 className="text-4xl lg:text-6xl font-bold leading-tight tracking-tight text-white">
-                Crafting reliable Softwares for ambitious products
+                Crafting reliable software for ambitious products
               </h1>
               <p className="text-lg text-[rgb(var(--color-text-secondary))] leading-relaxed">
-                I'm Nagaraj — a Software developer turning complex challenges into scalable solutions.
+                I'm Nagaraj Neelam — a Sotfware developer turning complex challenges into scalable solutions.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button onClick={() => scrollToSection('projects')} className="bg-[rgb(var(--color-accent-mint))] text-black hover:bg-[rgb(var(--color-accent-mint))]/90">

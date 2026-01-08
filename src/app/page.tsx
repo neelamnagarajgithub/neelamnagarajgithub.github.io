@@ -39,7 +39,6 @@ export default function Portfolio() {
        <ExperienceSection />   
       <SkillsSection />
       <ProjectsSection />
-      <UpcomingProjectsSection />
       <HackathonsSection />
       <ContactSection scrollToSection={scrollToSection} />
       <Footer scrollToSection={scrollToSection} />

@@ -14,7 +14,7 @@ export default function Footer({ scrollToSection }: FooterProps) {
           <div className="grid md:grid-cols-4 gap-8">
             <div className="space-y-4">
               <div className="text-xl font-bold text-white">N.</div>
-              <p className="text-[rgb(var(--color-text-secondary))]">Backend Developer</p>
+              <p className="text-[rgb(var(--color-text-secondary))]">Software Developer</p>
             </div>
 
             <div className="space-y-4">
@@ -55,17 +55,24 @@ export default function Footer({ scrollToSection }: FooterProps) {
                   <Twitter className="w-6 h-6 text-[rgb(var(--color-text-secondary))] hover:text-white cursor-pointer transition-colors" />
                 </a>
 
-                <a href="neelamnagaraj99@email.com">
+                <a href="mailto:neelamnagaraj99@gmail.com">
                   <Mail className="w-6 h-6 text-[rgb(var(--color-text-secondary))] hover:text-white cursor-pointer transition-colors" />
                 </a>
               </div>
             </div>
 
             <div className="space-y-4">
-              <Button className="bg-[rgb(var(--color-accent-mint))] text-black hover:bg-[rgb(var(--color-accent-mint))]/90">
-                <Download className="w-4 h-4 mr-2" />
-                Download CV
-              </Button>
+              <a
+                href="/Nagaraj_Neelam_Resume.pdf"
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button className="bg-[rgb(var(--color-accent-mint))] text-black hover:bg-[rgb(var(--color-accent-mint))]/90">
+                  <Download className="w-4 h-4 mr-2" />
+                  Download CV
+                </Button>
+              </a>
             </div>
           </div>
         </FadeIn>
@@ -73,7 +80,7 @@ export default function Footer({ scrollToSection }: FooterProps) {
         <FadeIn delay={200}>
           <div className="mt-12 pt-8 border-t border-[rgb(var(--color-border-hairline))] text-center">
             <p className="text-sm text-[rgb(var(--color-text-muted))]">
-              © 2024 Nagaraj. Crafted with Technology.
+              © 2026 Nagaraj. Crafted with Technology.
             </p>
           </div>
         </FadeIn>
