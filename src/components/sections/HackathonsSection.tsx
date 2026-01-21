@@ -4,9 +4,18 @@ import { Trophy, Award, Target, Zap, ArrowUpRight } from "lucide-react";
 
 export default function HackathonsSection() {
   const hackathons = [
+      {
+      year: "January 2025",
+      event: "AI Builders Challenge",
+      achievement: "Top 60 Finalist",
+      description: "Finalist at the AI Builders Challenge 2025 organized by Portkey for building a LLM Cost & Quality Optimizer",
+      technologies: ["Portkey", "AI", "LLM Pricing"],
+      accent: "mint",
+      icon: Award,
+    },
     {
       year: "December 2025",
-      event: "Agentathon",
+      event: "Agentathon'25",
       achievement: "Finalist",
       description: "Finalist at the Agentathon 2025 organized by Google Developer Groups for building a Fintech Agentic AI solution",
       technologies: ["FinTech", "AI", "Collaboration"],

@@ -20,6 +20,9 @@ export default function Navigation({ mobileMenuOpen, setMobileMenuOpen, scrollTo
           <button onClick={() => scrollToSection('about')} className="text-sm text-[rgb(var(--color-text-secondary))] hover:text-white transition-colors">
             About
           </button>
+          <button onClick={() => scrollToSection('experience')} className="text-sm text-[rgb(var(--color-text-secondary))] hover:text-white transition-colors">
+            Experience
+          </button>
           <button onClick={() => scrollToSection('skills')} className="text-sm text-[rgb(var(--color-text-secondary))] hover:text-white transition-colors">
             Skills
           </button>
