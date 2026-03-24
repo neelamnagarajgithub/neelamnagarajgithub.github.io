@@ -13,7 +13,7 @@ export default function UpcomingProjectsSection() {
             title: "DevVerse",
             description: "DevVerse is a tokenized project marketplace for developers, enabling them to showcase, monetize, and collaborate on projects with integrated smart contracts and decentralized validation.Bringing Recognition to Hardwork of Dev's",
             techStack: ["Nextjs", "Express", "Solidity", "Etherjs", "Python"],
-            liveDemo: "https://devverse.nagarajneelam.me",
+            liveDemo: "https://devverse.nagarajneelam.in",
             github: "https://github.com/neelamnagarajgithub/DevVerse",
             category: "GenAI &Blockchain",
             accent: "mint"

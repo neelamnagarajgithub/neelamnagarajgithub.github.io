@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   keywords: ["backend developer", "microservices", "cloud native", "API development", "scaleable architecture"],
   authors: [{ name: "Nagaraj" }],
   creator: "Nagaraj",
-  metadataBase: new URL("https://nagarajneelam.me"),
+  metadataBase: new URL("https://nagarajneelam.in"),
   openGraph: {
     title: "Nagaraj - Backend Developer Portfolio",
     description: "Backend developer crafting reliable, scalable solutions for ambitious products.",
