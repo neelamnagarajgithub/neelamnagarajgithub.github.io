@@ -1,10 +1,25 @@
 "use client";
 
-import { FadeIn, StaggeredFadeIn } from "@/components/ui/scroll-reveal";
+import { useRef } from "react";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { FadeIn, SlideUp, StaggerContainer, StaggerItem, HoverScale } from "@/components/motion";
 import { Card } from "@/components/ui/card";
-import { Briefcase, Calendar, MapPin } from "lucide-react";
+import { Briefcase, Calendar, MapPin, ChevronRight } from "lucide-react";
+import { DotPattern } from "@/components/ui/background-effects";
 
 export default function ExperienceSection() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end end"],
+  });
+
+  const scaleY = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
+
   const experiences = [
     {
       id: 1,
@@ -19,7 +34,6 @@ export default function ExperienceSection() {
         "Designed and developed backend functionality for AWS Marketplace integration, contributing to end-to-end integration flow and business logic.",
       ],
       accent: "mint",
-      side: "left",
     },
     {
       id: 2,
@@ -34,7 +48,6 @@ export default function ExperienceSection() {
         "Implemented IPFS storage, DID-based authentication, Hyperledger Fabric, and an AI OCR pipeline, achieving 90% data extraction accuracy while improving data privacy, security, and auditability by 95%.",
       ],
       accent: "lavender",
-      side: "right",
     },
     {
       id: 3,
@@ -49,169 +62,153 @@ export default function ExperienceSection() {
         "Collaborated with doctors, labs, and developers to design and deploy EHR-compliant healthcare features implemented role-based access and encryption, reducing data breach risks by 40% and improving patient experience by 30%.",
       ],
       accent: "peach",
-      side: "left",
     },
   ];
 
   return (
-    <section id="experience" className="py-24 px-6 lg:px-[72px] relative z-10 overflow-hidden">
-      <div className="container mx-auto max-w-6xl">
+    <section id="experience" className="py-32 px-6 lg:px-[72px] relative z-10 overflow-hidden bg-[rgb(var(--color-bg-primary))]">
+      {/* Background decoration */}
+      <DotPattern className="opacity-20" />
+      
+      <div className="container mx-auto max-w-6xl relative z-10">
         <FadeIn>
-          <div className="mb-20 text-center">
-            <h2 className="text-4xl lg:text-6xl font-bold text-white mb-4 tracking-tight">
+          <div className="mb-24 text-center">
+            <h2 className="text-5xl lg:text-7xl font-bold text-white mb-6 tracking-tight">
               Experience
             </h2>
-            <p className="text-lg text-[rgb(var(--color-text-secondary))] max-w-2xl mx-auto">
-              Building scalable backend systems and healthcare solutions
+            <div className="w-24 h-1 bg-gradient-to-r from-[rgb(var(--color-accent-mint))] via-[rgb(var(--color-accent-lavender))] to-[rgb(var(--color-accent-peach))] mx-auto mb-8 rounded-full" />
+            <p className="text-xl text-[rgb(var(--color-text-secondary))] max-w-2xl mx-auto font-light">
+              Designing scalable backend systems and robust healthcare solutions for modern products.
             </p>
           </div>
         </FadeIn>
 
-        <div className="relative">
-          {/* Curved Path - SVG */}
-          <svg
-            className="absolute left-1/2 top-0 -translate-x-1/2 w-full h-full hidden lg:block"
-            style={{ zIndex: 0 }}
-          >
-            <defs>
-              <linearGradient id="pathGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="rgb(127, 244, 207)" stopOpacity="0.3" />
-                <stop offset="50%" stopColor="rgb(167, 139, 250)" stopOpacity="0.3" />
-                <stop offset="100%" stopColor="rgb(251, 146, 60)" stopOpacity="0.3" />
-              </linearGradient>
-            </defs>
-            <path
-              d="M 300 0 Q 200 150, 300 300 T 300 600 T 300 900"
-              stroke="url(#pathGradient)"
-              strokeWidth="2"
-              fill="none"
-              strokeDasharray="8,8"
+        <div ref={containerRef} className="relative">
+          {/* Vertical Beam */}
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 -translate-x-1/2 w-[2px] bg-[rgb(var(--color-border-hairline))] hidden md:block">
+            <motion.div
+              style={{ scaleY, transformOrigin: "top" }}
+              className="absolute inset-0 bg-gradient-to-b from-[rgb(var(--color-accent-mint))] via-[rgb(var(--color-accent-lavender))] to-[rgb(var(--color-accent-peach))] shadow-[0_0_15px_rgba(var(--color-accent-mint),0.5)]"
             />
-          </svg>
+          </div>
 
-          <StaggeredFadeIn staggerDelay={200}>
-            <div className="space-y-24 lg:space-y-32">
-              {experiences.map((exp, idx) => (
-                <div
-                  key={exp.id}
-                  className={`relative flex flex-col lg:flex-row items-center gap-8 ${
-                    exp.side === "right" ? "lg:flex-row-reverse" : ""
-                  }`}
-                >
+          <StaggerContainer staggerDelay={0.3} className="space-y-24 md:space-y-32">
+            {experiences.map((exp, idx) => (
+              <StaggerItem key={exp.id}>
+                <div className={`relative flex flex-col md:flex-row items-center gap-12 ${
+                  idx % 2 !== 0 ? "md:flex-row-reverse" : ""
+                }`}>
                   {/* Timeline Node */}
-                  <div className="relative flex-shrink-0 z-10">
-                    <div
-                      className={`w-16 h-16 rounded-full flex items-center justify-center font-bold text-2xl border-4 text-black ${
+                  <div className="absolute left-4 md:left-1/2 -translate-x-1/2 z-20 hidden md:block">
+                    <motion.div
+                      whileInView={{ scale: [0, 1.2, 1] }}
+                      viewport={{ once: true }}
+                      className={`w-6 h-6 rounded-full border-4 bg-[rgb(var(--color-bg-primary))] ${
                         exp.accent === "mint"
-                          ? "bg-[rgb(var(--color-accent-mint))] border-[rgb(var(--color-accent-mint))]/30"
+                          ? "border-[rgb(var(--color-accent-mint))]"
                           : exp.accent === "lavender"
-                          ? "bg-[rgb(var(--color-accent-lavender))] border-[rgb(var(--color-accent-lavender))]/30"
-                          : "bg-[rgb(var(--color-accent-peach))] border-[rgb(var(--color-accent-peach))]/30"
-                      } shadow-lg`}
-                    >
-                      {idx + 1}
-                    </div>
-                    {/* Glow Effect */}
-                    <div
-                      className={`absolute inset-0 rounded-full blur-xl opacity-50 ${
-                        exp.accent === "mint"
-                          ? "bg-[rgb(var(--color-accent-mint))]"
-                          : exp.accent === "lavender"
-                          ? "bg-[rgb(var(--color-accent-lavender))]"
-                          : "bg-[rgb(var(--color-accent-peach))]"
-                      }`}
+                          ? "border-[rgb(var(--color-accent-lavender))]"
+                          : "border-[rgb(var(--color-accent-peach))]"
+                      } shadow-[0_0_20px_rgba(var(--color-accent-${exp.accent}),0.4)]`}
                     />
                   </div>
 
-                  {/* Card */}
-                  <Card
-                    className={`flex-1 lg:max-w-[500px] relative overflow-hidden border-[rgb(var(--color-border-hairline))] bg-[rgb(var(--color-bg-elevated))] hover:shadow-xl transition-all duration-300 ${
-                      exp.accent === "mint"
-                        ? "hover:border-[rgb(var(--color-accent-mint))]/50 hover:shadow-[rgb(var(--color-accent-mint))]/20"
-                        : exp.accent === "lavender"
-                        ? "hover:border-[rgb(var(--color-accent-lavender))]/50 hover:shadow-[rgb(var(--color-accent-lavender))]/20"
-                        : "hover:border-[rgb(var(--color-accent-peach))]/50 hover:shadow-[rgb(var(--color-accent-peach))]/20"
-                    }`}
-                  >
-                    {/* Accent Corner */}
-                    <div
-                      className={`absolute top-0 right-0 w-32 h-32 opacity-10 ${
+                  {/* Date/Company Info (Visible/Desktop only for side content) */}
+                  <div className={`flex-1 hidden md:flex flex-col ${
+                    idx % 2 !== 0 ? "text-left pl-12" : "text-right pr-12"
+                  }`}>
+                    <span className={`text-sm font-bold uppercase tracking-widest mb-2 ${
                         exp.accent === "mint"
-                          ? "bg-[rgb(var(--color-accent-mint))]"
+                          ? "text-[rgb(var(--color-accent-mint))]"
                           : exp.accent === "lavender"
-                          ? "bg-[rgb(var(--color-accent-lavender))]"
-                          : "bg-[rgb(var(--color-accent-peach))]"
-                      }`}
-                      style={{
-                        clipPath: "polygon(100% 0, 0 0, 100% 100%)",
-                      }}
-                    />
+                          ? "text-[rgb(var(--color-accent-lavender))]"
+                          : "text-[rgb(var(--color-accent-peach))]"
+                      }`}>
+                      {exp.duration}
+                    </span>
+                    <h3 className="text-3xl font-bold text-white mb-2">{exp.company}</h3>
+                    <div className="flex items-center gap-2 text-[rgb(var(--color-text-muted))] justify-end">
+                      {idx % 2 === 0 && <MapPin className="w-4 h-4" />}
+                      <span>{exp.location}</span>
+                      {idx % 2 !== 0 && <MapPin className="w-4 h-4" />}
+                    </div>
+                  </div>
 
-                    <div className="p-6 lg:p-8 relative z-10">
-                      {/* Header */}
-                      <div className="mb-4">
-                        <div className="flex items-center gap-2 mb-3">
-                          <Briefcase
-                            className={`w-5 h-5 ${
+                  {/* Card Content */}
+                  <div className="flex-1 md:w-1/2">
+                    <HoverScale scale={1.02}>
+                      <Card className={`group relative overflow-hidden border-[rgb(var(--color-border-hairline))] bg-white/[0.03] backdrop-blur-xl p-8 lg:p-10 transition-all duration-500 hover:bg-white/[0.06] ${
+                        exp.accent === "mint"
+                          ? "hover:border-[rgb(var(--color-accent-mint))]/40"
+                          : exp.accent === "lavender"
+                          ? "hover:border-[rgb(var(--color-accent-lavender))]/40"
+                          : "hover:border-[rgb(var(--color-accent-peach))]/40"
+                      }`}>
+                        {/* Mobile Header */}
+                        <div className="md:hidden mb-6">
+                           <span className={`text-xs font-bold uppercase tracking-widest mb-2 block ${
                               exp.accent === "mint"
                                 ? "text-[rgb(var(--color-accent-mint))]"
                                 : exp.accent === "lavender"
                                 ? "text-[rgb(var(--color-accent-lavender))]"
                                 : "text-[rgb(var(--color-accent-peach))]"
-                            }`}
-                          />
-                          <h3 className="text-xl lg:text-2xl font-bold text-white">
+                            }`}>
+                            {exp.duration}
+                          </span>
+                          <h3 className="text-2xl font-bold text-white">{exp.company}</h3>
+                        </div>
+
+                        <div className="flex items-center gap-3 mb-6">
+                          <div className={`p-3 rounded-xl bg-white/5 ${
+                              exp.accent === "mint"
+                                ? "text-[rgb(var(--color-accent-mint))]"
+                                : exp.accent === "lavender"
+                                ? "text-[rgb(var(--color-accent-lavender))]"
+                                : "text-[rgb(var(--color-accent-peach))]"
+                            }`}>
+                            <Briefcase className="w-6 h-6" />
+                          </div>
+                          <h4 className="text-xl lg:text-2xl font-bold text-white tracking-tight">
                             {exp.role}
-                          </h3>
+                          </h4>
                         </div>
-                        <div className="text-lg font-semibold text-[rgb(var(--color-text-secondary))] mb-3">
-                          {exp.company}
-                        </div>
-                        <div className="flex flex-wrap gap-4 text-sm text-[rgb(var(--color-text-muted))]">
-                          <div className="flex items-center gap-1">
-                            <Calendar className="w-4 h-4" />
-                            <span>{exp.duration}</span>
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <MapPin className="w-4 h-4" />
-                            <span>{exp.location}</span>
-                          </div>
-                        </div>
-                      </div>
 
-                      {/* Description */}
-                      <p className="text-[rgb(var(--color-text-secondary))] mb-4 leading-relaxed text-sm lg:text-base">
-                        {exp.description}
-                      </p>
+                        <p className="text-[rgb(var(--color-text-secondary))] mb-8 leading-relaxed text-lg font-light">
+                          {exp.description}
+                        </p>
 
-                      {/* Key Points */}
-                      <div className="space-y-3">
-                        {exp.points.map((point, pointIdx) => (
-                          <div
-                            key={pointIdx}
-                            className="flex items-start gap-3"
-                          >
-                            <div
-                              className={`mt-1.5 w-2 h-2 rounded-full flex-shrink-0 ${
+                        <div className="space-y-4">
+                          {exp.points.map((point, pIdx) => (
+                            <div key={pIdx} className="flex items-start gap-4 group/point">
+                               <div className={`mt-2 w-1.5 h-1.5 rounded-full flex-shrink-0 transition-all duration-300 group-hover/point:scale-150 ${
                                 exp.accent === "mint"
                                   ? "bg-[rgb(var(--color-accent-mint))]"
                                   : exp.accent === "lavender"
                                   ? "bg-[rgb(var(--color-accent-lavender))]"
                                   : "bg-[rgb(var(--color-accent-peach))]"
-                              }`}
-                            />
-                            <p className="text-[rgb(var(--color-text-primary))] text-sm leading-relaxed">
-                              {point}
-                            </p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </Card>
+                              }`} />
+                              <p className="text-[rgb(var(--color-text-primary))] text-base leading-relaxed opacity-80 group-hover/point:opacity-100 transition-opacity">
+                                {point}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Interactive Corner Accent */}
+                        <div className={`absolute top-0 right-0 w-24 h-24 blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-700 ${
+                            exp.accent === "mint"
+                              ? "bg-[rgb(var(--color-accent-mint))]"
+                              : exp.accent === "lavender"
+                              ? "bg-[rgb(var(--color-accent-lavender))]"
+                              : "bg-[rgb(var(--color-accent-peach))]"
+                          }`} />
+                      </Card>
+                    </HoverScale>
+                  </div>
                 </div>
-              ))}
-            </div>
-          </StaggeredFadeIn>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
         </div>
       </div>
     </section>
