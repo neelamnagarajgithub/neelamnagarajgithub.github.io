@@ -48,7 +48,7 @@ export default function Footer({ scrollToSection }: FooterProps) {
                 </a>
 
                 <a
-                  href="https://x.com/neelamnaga25670"
+                  href="https://x.com/nagarajneelam14"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -68,7 +68,7 @@ export default function Footer({ scrollToSection }: FooterProps) {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button className="bg-[rgb(var(--color-accent-mint))] text-black hover:bg-[rgb(var(--color-accent-mint))]/90">
+                <Button className="bg-[#F0B429] text-black hover:bg-[#D9A320] transition-colors duration-300">
                   <Download className="w-4 h-4 mr-2" />
                   Download CV
                 </Button>

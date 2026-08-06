@@ -26,7 +26,7 @@ export default function MobileMenu({ scrollToSection }: MobileMenuProps) {
         <button onClick={() => scrollToSection('contact')} className="block w-full text-left text-[rgb(var(--color-text-secondary))] hover:text-white transition-colors">
           Contact
         </button>
-        <Button className="w-full bg-[rgb(var(--color-accent-mint))] text-black hover:bg-[rgb(var(--color-accent-mint))]/90">
+        <Button className="bg-[#F0B429] text-black hover:bg-[#D9A320] transition-colors duration-300">
           Download CV
         </Button>
       </div>

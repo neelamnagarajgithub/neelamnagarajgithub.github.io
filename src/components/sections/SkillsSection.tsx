@@ -1,163 +1,108 @@
-import { ScrollReveal, FadeIn, StaggeredFadeIn } from "@/components/ui/scroll-reveal";
-import { Code2, Database, Blocks, Wrench } from "lucide-react";
+import { useRef } from "react";
+import { motion } from "framer-motion";
+import { FadeIn, StaggerContainer, StaggerItem, GlowOnHover } from "@/components/motion";
+import { Code2, Database, Cloud, Zap, Shield, Globe } from "lucide-react";
 
 export default function SkillsSection() {
-  const skills = [
+  const skillLayers = [
     {
-      category: "Programming Languages",
-      items: ["C", "C++", "Java", "JavaScript"],
+      title: "Application Layer",
+      description: "Crafting the logic and flow of high-performance services.",
       icon: Code2,
       accent: "mint",
+      skills: [
+        { name: "Frameworks", items: ["Express.js", "NestJS", "Fastify", "FastAPI"] },
+        { name: "Languages", items: ["JavaScript", "C++", "Java","Python"] },
+        { name: "AI/ML", items: ["LangChain", "Langraph", "PyTorch", "RAG"] },
+      ],
     },
     {
-      category: "Frameworks & Databases",
-      items: ["React.js", "Node.js", "Express.js", "NestJS", "PostgreSQL", "MongoDB", "Redis", "LangChain"],
+      title: "Persistence & Data",
+      description: "Managing state and scale across diverse data models.",
       icon: Database,
       accent: "lavender",
+      skills: [
+        { name: "Relational", items: ["PostgreSQL", "MySQL", "Prisma"] },
+        { name: "NoSQL", items: ["MongoDB", "Redis", "Elasticsearch"] },
+        { name: "Blockchain", items: ["Solidity", "Hyperledger Fabric", "Ethers.js"] },
+      ],
     },
     {
-      category: "Blockchain",
-      items: ["Solidity", "Hyperledger Fabric", "Ethers.js", "Remix", "Ganache", "Truffle", "Hardhat"],
-      icon: Blocks,
+      title: "Infrastructure & Ops",
+      description: "Deploying and scaling with cloud-native precision.",
+      icon: Cloud,
       accent: "peach",
-    },
-    {
-      category: "Tools",
-      items: ["Postman", "Stripe", "Twilio", "Prisma", "Jest", "Render", "Docker", "Git", "GitHub"],
-      icon: Wrench,
-      accent: "mint",
+      skills: [
+        { name: "Cloud", items: ["AWS", "Supabase", "Render"] },
+        { name: "DevOps", items: ["Docker", "Kubernetes", "Gitlab CI", " Github"] },
+        { name: "Security", items: ["JWT", "OAuth", "SSL/TLS"] },
+      ],
     },
   ];
 
   return (
-    <section id="skills" className="py-24 px-6 lg:px-[72px] relative z-10 overflow-hidden">
+    <section id="skills" className="py-32 px-6 lg:px-[72px] relative z-10 overflow-hidden bg-[rgb(var(--color-bg-primary))]">
       <div className="container mx-auto max-w-7xl">
         <FadeIn>
-          <div className="mb-16 text-center">
-            <h2 className="text-4xl lg:text-6xl font-bold text-white mb-4 tracking-tight">
-              Skills & Technologies
+          <div className="mb-24 text-center">
+            <h2 className="text-5xl lg:text-7xl font-bold text-white mb-6 tracking-tight">
+              Tech Stack
             </h2>
-            <p className="text-lg text-[rgb(var(--color-text-secondary))] max-w-2xl mx-auto">
-              A versatile toolkit for building robust, scalable solutions
+            <p className="text-xl text-[rgb(var(--color-text-secondary))] max-w-3xl mx-auto font-light">
+              A comprehensive view of my technical architecture capabilities across the full backend stack.
             </p>
           </div>
         </FadeIn>
 
-        <StaggeredFadeIn staggerDelay={150}>
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-10">
-            {skills.map((skillGroup, idx) => {
-              const Icon = skillGroup.icon;
-              return (
-                <div
-                  key={idx}
-                  className={`group relative overflow-hidden rounded-3xl border border-[rgb(var(--color-border-hairline))] bg-gradient-to-br from-[rgb(var(--color-bg-elevated))] to-[rgb(var(--color-bg-primary))] p-8 transition-all duration-300 hover:scale-[1.02] ${
-                    skillGroup.accent === "mint"
-                      ? "hover:border-[rgb(var(--color-accent-mint))]/50 hover:shadow-[0_8px_32px_0_rgba(127,244,207,0.15)]"
-                      : skillGroup.accent === "lavender"
-                      ? "hover:border-[rgb(var(--color-accent-lavender))]/50 hover:shadow-[0_8px_32px_0_rgba(167,139,250,0.15)]"
-                      : "hover:border-[rgb(var(--color-accent-peach))]/50 hover:shadow-[0_8px_32px_0_rgba(251,146,60,0.15)]"
-                  }`}
-                >
-                  {/* Background Gradient Blob */}
-                  <div
-                    className={`absolute -top-12 -right-12 w-40 h-40 rounded-full blur-3xl opacity-20 transition-opacity group-hover:opacity-30 ${
-                      skillGroup.accent === "mint"
-                        ? "bg-[rgb(var(--color-accent-mint))]"
-                        : skillGroup.accent === "lavender"
-                        ? "bg-[rgb(var(--color-accent-lavender))]"
-                        : "bg-[rgb(var(--color-accent-peach))]"
-                    }`}
-                  />
-
-                  {/* Header */}
-                  <div className="flex items-center gap-4 mb-6 relative z-10">
-                    <div
-                      className={`w-14 h-14 rounded-2xl flex items-center justify-center ${
-                        skillGroup.accent === "mint"
-                          ? "bg-[rgb(var(--color-accent-mint))]/10 text-[rgb(var(--color-accent-mint))]"
-                          : skillGroup.accent === "lavender"
-                          ? "bg-[rgb(var(--color-accent-lavender))]/10 text-[rgb(var(--color-accent-lavender))]"
-                          : "bg-[rgb(var(--color-accent-peach))]/10 text-[rgb(var(--color-accent-peach))]"
-                      } transition-transform group-hover:scale-110`}
-                    >
-                      <Icon className="w-7 h-7" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-white">
-                        {skillGroup.category}
-                      </h3>
-                      <span className="text-sm text-[rgb(var(--color-text-muted))]">
-                        {skillGroup.items.length} technologies
-                      </span>
-                    </div>
+        <StaggerContainer staggerDelay={0.2} className="grid grid-cols-1 gap-12">
+          {skillLayers.map((layer, idx) => (
+            <StaggerItem key={idx}>
+              <div className="group relative">
+                {/* Horizontal Divider with Label */}
+                <div className="flex items-center gap-6 mb-12">
+                  <div className={`p-4 rounded-2xl bg-white/5 border border-white/10 ${layer.accent === "mint" ? "text-[rgb(var(--color-accent-mint))]" :
+                      layer.accent === "lavender" ? "text-[rgb(var(--color-accent-lavender))]" : "text-[rgb(var(--color-accent-peach))]"
+                    }`}>
+                    <layer.icon className="w-6 h-6" />
                   </div>
+                  <h3 className="text-3xl font-bold text-white whitespace-nowrap">{layer.title}</h3>
+                  <div className="h-px bg-white/10 flex-1" />
+                  <p className="hidden md:block text-[rgb(var(--color-text-muted))] text-sm font-mono">{layer.description}</p>
+                </div>
 
-                  {/* Skills Grid */}
-                  <div className="flex flex-wrap gap-2 relative z-10">
-                    {skillGroup.items.map((item, i) => (
-                      <ScrollReveal key={i} delay={100 + i * 30}>
-                        <div
-                          className={`group/skill px-4 py-2 rounded-xl border transition-all duration-200 hover:scale-105 ${
-                            skillGroup.accent === "mint"
-                              ? "bg-[rgb(var(--color-accent-mint))]/5 border-[rgb(var(--color-accent-mint))]/20 hover:bg-[rgb(var(--color-accent-mint))]/10 hover:border-[rgb(var(--color-accent-mint))]/40"
-                              : skillGroup.accent === "lavender"
-                              ? "bg-[rgb(var(--color-accent-lavender))]/5 border-[rgb(var(--color-accent-lavender))]/20 hover:bg-[rgb(var(--color-accent-lavender))]/10 hover:border-[rgb(var(--color-accent-lavender))]/40"
-                              : "bg-[rgb(var(--color-accent-peach))]/5 border-[rgb(var(--color-accent-peach))]/20 hover:bg-[rgb(var(--color-accent-peach))]/10 hover:border-[rgb(var(--color-accent-peach))]/40"
-                          }`}
-                        >
-                          <span
-                            className={`text-sm font-medium ${
-                              skillGroup.accent === "mint"
-                                ? "text-[rgb(var(--color-accent-mint))]"
-                                : skillGroup.accent === "lavender"
-                                ? "text-[rgb(var(--color-accent-lavender))]"
-                                : "text-[rgb(var(--color-accent-peach))]"
-                            } group-hover/skill:text-white transition-colors`}
+                {/* Skills Grid for this Layer */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  {layer.skills.map((skillGroup, sIdx) => (
+                    <motion.div
+                      key={sIdx}
+                      whileHover={{ y: -5 }}
+                      className="p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-white/10 transition-colors"
+                    >
+                      <h4 className="text-sm font-bold uppercase tracking-[0.2em] text-white/40 mb-6 font-mono">
+                        {skillGroup.name}
+                      </h4>
+                      <div className="flex flex-wrap gap-3">
+                        {skillGroup.items.map((item, i) => (
+                          <div
+                            key={i}
+                            className={`px-4 py-2 rounded-xl text-sm font-medium border transition-all duration-300 bg-white/5 border-white/5 hover:bg-white/10 ${layer.accent === "mint" ? "hover:border-[rgb(var(--color-accent-mint))]/40 hover:text-[rgb(var(--color-accent-mint))]" :
+                                layer.accent === "lavender" ? "hover:border-[rgb(var(--color-accent-lavender))]/40 hover:text-[rgb(var(--color-accent-lavender))]" : "hover:border-[rgb(var(--color-accent-peach))]/40 hover:text-[rgb(var(--color-accent-peach))]"
+                              }`}
                           >
                             {item}
-                          </span>
-                        </div>
-                      </ScrollReveal>
-                    ))}
-                  </div>
-
-                  {/* Decorative Corner Line */}
-                  <div
-                    className={`absolute bottom-0 left-0 w-32 h-1 ${
-                      skillGroup.accent === "mint"
-                        ? "bg-gradient-to-r from-[rgb(var(--color-accent-mint))] to-transparent"
-                        : skillGroup.accent === "lavender"
-                        ? "bg-gradient-to-r from-[rgb(var(--color-accent-lavender))] to-transparent"
-                        : "bg-gradient-to-r from-[rgb(var(--color-accent-peach))] to-transparent"
-                    } opacity-0 group-hover:opacity-100 transition-opacity`}
-                  />
+                          </div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  ))}
                 </div>
-              );
-            })}
-          </div>
-        </StaggeredFadeIn>
+              </div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
 
-        {/* Bottom Stats/Info */}
-        <FadeIn delay={400}>
-          <div className="mt-16 text-center">
-            <div className="inline-flex items-center gap-8 px-8 py-4 rounded-2xl bg-[rgb(var(--color-bg-elevated))] border border-[rgb(var(--color-border-hairline))]">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-[rgb(var(--color-accent-mint))]">30+</div>
-                <div className="text-sm text-[rgb(var(--color-text-secondary))]">Technologies</div>
-              </div>
-              <div className="w-px h-10 bg-[rgb(var(--color-border-hairline))]" />
-              <div className="text-center">
-                <div className="text-3xl font-bold text-[rgb(var(--color-accent-lavender))]">4</div>
-                <div className="text-sm text-[rgb(var(--color-text-secondary))]">Categories</div>
-              </div>
-              <div className="w-px h-10 bg-[rgb(var(--color-border-hairline))]" />
-              <div className="text-center">
-                <div className="text-3xl font-bold text-[rgb(var(--color-accent-peach))]">∞</div>
-                <div className="text-sm text-[rgb(var(--color-text-secondary))]">Always Learning</div>
-              </div>
-            </div>
-          </div>
-        </FadeIn>
+        {/* Global Infrastructure Stats */}
+        
       </div>
     </section>
   );

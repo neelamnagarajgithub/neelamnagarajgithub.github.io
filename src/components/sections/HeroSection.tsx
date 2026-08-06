@@ -1,5 +1,7 @@
 import { FadeIn } from "@/components/ui/scroll-reveal";
 import { Button } from "@/components/ui/button";
+import InteractiveTerminal from "@/components/InteractiveTerminal";
+import { SIGNAL } from "@/lib/accent-colors";
 
 interface HeroSectionProps {
   scrollToSection: (sectionId: string) => void;
@@ -7,40 +9,65 @@ interface HeroSectionProps {
 
 export default function HeroSection({ scrollToSection }: HeroSectionProps) {
   return (
-    <section className="relative pt-19 pb-40 px-6 lg:px-[72px] z-10">
+    <section className="relative z-10 px-6 pb-40 pt-19 lg:px-[72px]">
+      <br/>
+      <br/>
+      <br/>
       <div className="container mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid items-center gap-16 lg:grid-cols-2">
           <FadeIn delay={100}>
-            <div className="space-y-6 max-w-[540px]">
-              <h1 className="text-4xl lg:text-6xl font-bold leading-tight tracking-tight text-white">
-                Crafting reliable software for ambitious products
+            <div className="max-w-[560px] space-y-7">
+              <span className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.3em] text-[rgb(var(--color-text-muted))]">
+                <span
+                  className="h-1.5 w-1.5 animate-pulse rounded-full"
+                  style={{ backgroundColor: SIGNAL }}
+                />
+                status: building
+              </span>
+
+              <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-white lg:text-6xl">
+                Backend systems that don&apos;t fall over at 2&nbsp;a.m.
               </h1>
-              <p className="text-lg text-[rgb(var(--color-text-secondary))] leading-relaxed">
-                I'm Nagaraj Neelam — a Sotfware developer turning complex challenges into scalable solutions.
+
+              <p className="text-lg leading-relaxed text-[rgb(var(--color-text-secondary))]">
+                I&apos;m Nagaraj Neelam — a Software engineer building scalable
+                backends and AI-agent systems, four internships and a lot of
+                production bugs into the craft.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button onClick={() => scrollToSection('projects')} className="bg-[rgb(var(--color-accent-mint))] text-black hover:bg-[rgb(var(--color-accent-mint))]/90">
+
+              <div className="flex flex-wrap gap-2 pt-1">
+                {["4 internships", "10+ Hackathons", "CS'26 Grad"].map((stat) => (
+                  <span
+                    key={stat}
+                    className="rounded-md border px-2.5 py-1 font-mono text-[11px] tracking-wide text-[rgb(var(--color-text-secondary))]"
+                    style={{ borderColor: "rgb(var(--color-border-hairline))" }}
+                  >
+                    {stat}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex flex-col gap-4 pt-2 sm:flex-row">
+                <Button
+                  onClick={() => scrollToSection("projects")}
+                  className="text-black hover:opacity-90"
+                  style={{ backgroundColor: SIGNAL }}
+                >
                   View projects
                 </Button>
-                <button onClick={() => scrollToSection('contact')} className="text-left text-[rgb(var(--color-text-secondary))] hover:text-white transition-colors">
+                <button
+                  onClick={() => scrollToSection("contact")}
+                  className="text-left text-[rgb(var(--color-text-secondary))] transition-colors hover:text-white"
+                >
                   Get in touch →
                 </button>
               </div>
             </div>
           </FadeIn>
+
           <FadeIn delay={200}>
-            <div className="relative flex items-center justify-center">
-              <div className="w-[90%] max-w-[550px] aspect-[4/5] relative rounded-3xl overflow-hidden shadow-[var(--shadow-card)] border border-[rgb(var(--color-border-hairline))] bg-[rgb(var(--color-bg-elevated))] transform rotate-3 hover:rotate-1 transition-transform duration-500">
-                <div className="absolute inset-4 bg-gradient-to-br from-[rgb(var(--color-accent-mint))]/20 to-[rgb(var(--color-accent-lavender))]/20 rounded-2xl overflow-hidden flex items-center justify-center">
-                  <div className="w-[90%] h-[90%] rounded-2xl overflow-hidden">
-                    <img
-                      src="/nagaraj.jpg"
-                      alt="Profile"
-                      className="w-full h-full object-cover rounded-2xl"
-                    />
-                  </div>
-                </div>
-              </div>
+            <div className="flex items-center justify-center">
+              <InteractiveTerminal />
             </div>
           </FadeIn>
         </div>

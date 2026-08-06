@@ -104,8 +104,8 @@ export default function ContactSection({ scrollToSection }: ContactSectionProps)
                   </div>
                   <div>
                     <h3 className="text-sm font-semibold text-[rgb(var(--color-text-secondary))]">Email</h3>
-                    <a 
-                      href="mailto:neelamnagaraj99@gmail.com" 
+                    <a
+                      href="mailto:neelamnagaraj99@gmail.com"
                       className="text-white hover:text-[rgb(var(--color-accent-mint))] transition-colors"
                     >
                       neelamnagaraj99@gmail.com
@@ -185,8 +185,8 @@ export default function ContactSection({ scrollToSection }: ContactSectionProps)
                 </div>
 
                 {submitStatus === "success" && (
-                  <div className="p-4 bg-[rgb(var(--color-accent-mint))]/10 border border-[rgb(var(--color-accent-mint))]/30 rounded-lg">
-                    <p className="text-[rgb(var(--color-accent-mint))] text-sm">
+                  <div className="rounded-lg border border-[#F0B429]/30 bg-[#F0B429]/10 p-4">
+                    <p className="text-[#F0B429] text-sm">
                       Message sent successfully! I'll get back to you soon.
                     </p>
                   </div>
@@ -203,7 +203,7 @@ export default function ContactSection({ scrollToSection }: ContactSectionProps)
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-[rgb(var(--color-accent-mint))] text-black hover:bg-[rgb(var(--color-accent-mint))]/90 disabled:opacity-50"
+                  className="w-full bg-[#F0B429] text-black hover:bg-[#D9A320] disabled:opacity-50 transition-colors duration-300"
                 >
                   {isSubmitting ? (
                     <>

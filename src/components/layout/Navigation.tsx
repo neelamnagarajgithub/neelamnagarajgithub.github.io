@@ -38,16 +38,18 @@ export default function Navigation({ mobileMenuOpen, setMobileMenuOpen, scrollTo
         </div>
 
         <div className="flex items-center space-x-4">
-          <a
-            href="/Nagaraj_Neelam_Resume.pdf"
-            
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button className="hidden sm:flex bg-[rgb(var(--color-accent-mint))] text-black hover:bg-[rgb(var(--color-accent-mint))]/90 h-9 px-4 text-sm font-medium">
-              View CV
-            </Button>
-          </a>
+          <Button
+  asChild
+  className="hidden sm:flex h-9 px-4 text-sm font-medium bg-[#F0B429] text-black hover:bg-[#D99E16] transition-colors duration-300"
+>
+  <a
+    href="/Nagaraj_Neelam_Resume.pdf"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    View Resume
+  </a>
+</Button>
 
           {/* Social Icons */}
           <div className="hidden lg:flex items-center space-x-3 ml-2">
@@ -68,7 +70,7 @@ export default function Navigation({ mobileMenuOpen, setMobileMenuOpen, scrollTo
               <Linkedin className="w-5 h-5" />
             </a>
             <a
-              href="https://x.com/neelamnaga25670"
+              href="https://x.com/nagarajneelam14"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[rgb(var(--color-text-secondary))] hover:text-white transition-colors"
