@@ -134,7 +134,7 @@ export default function ExperienceSection() {
           </div>
         </FadeIn>
 
-        <StaggerContainer staggerDelay={0.15} className="relative">
+        <StaggerContainer staggerDelay={0.05} className="relative">
           {/* Timeline spine */}
           <div className="absolute left-[7px] top-3 bottom-3 w-px bg-[rgb(var(--color-border-hairline))]" />
 

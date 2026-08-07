@@ -17,7 +17,7 @@ const SKILLS = [
 ];
 
 const EXPERIENCE = [
-  "Virtusa Consulting Services   Delivery Intern              Mar 2026 – May 2026",
+  "Virtusa Consulting Services   Intern -  Delivery           Mar 2026 – May 2026",
   "Secure Blink Tech             Backend Developer Intern     Sep 2025 – Nov 2025",
   "NIT Warangal                  Research Intern              May 2025 – Jul 2025",
   "Vitacure Healthcare           Backend Developer Intern     Apr 2025 – Jul 2025",
